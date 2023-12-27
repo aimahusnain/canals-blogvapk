@@ -193,7 +193,7 @@ export default function Create() {
             ...formData,
             [control.id]: event.target.value,
           });
-        }}
+        }}    
         value={formData[control.id as keyof BlogFormData]}
         name={control.id}
         placeholder={control.placeholder}
