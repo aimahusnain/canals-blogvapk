@@ -15,5 +15,9 @@ async function extractAllBlogs() {
 export default async function Blogs() {
   const blogPostsList = await extractAllBlogs();
 
-  return <BlogList lists={blogPostsList} />;
+  return (
+    <>
+      <BlogList lists={blogPostsList} />
+    </>
+  );
 }
