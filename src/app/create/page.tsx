@@ -335,7 +335,7 @@ export default function CreatePostPage() {
   }
 
   const handleCreatePost = async () => {
-    const res = await fetch('/api/blog/create-post', {
+    const res = await fetch('/api/blog-post/add-post', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
