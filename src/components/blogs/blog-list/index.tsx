@@ -9,7 +9,6 @@ import { useRouter } from "next/navigation";
 import { useContext, useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
 import SingleBlog from "../single-blog";
-import FeaturedPostEffected from './Featured Post'
 
 export default function BlogList({ lists }: { lists: Blog[] }) {
   const router = useRouter();
@@ -18,6 +17,13 @@ export default function BlogList({ lists }: { lists: Blog[] }) {
 
 
   useEffect(() => {
+    useEffect(() => {
+      // Check if it's not the build process
+      if (typeof window !== 'undefined') {
+          helperFuncToFetchSearchResults(searchQuery);
+      }
+  }, [searchQuery]); // Add 'searchQuery' to the dependency array
+  
     router.refresh();
   }, []);
     

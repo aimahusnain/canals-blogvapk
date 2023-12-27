@@ -8,9 +8,10 @@ import {useRouter} from 'next/navigation'
 export default function Featured({ lists }: { lists: Blog[] }) {
   const router = useRouter();
 
-    useEffect(()=>{
-        router.refresh()
-    },[])
+  useEffect(() => {
+    router.refresh()
+}, [router]); // Add 'router' to the dependency array
+
 
     async function handleDelete(id: number) {
       console.log(id);
