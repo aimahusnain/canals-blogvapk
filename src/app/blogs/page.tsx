@@ -1,5 +1,4 @@
 import BlogList from "@/components/blogs/blog-list";
-import { Blog } from "@/utils/types";
 
 async function extractAllBlogs() {
   const res = await fetch(`${process.env.URL}/api/blog-post/get-all-post`, {
