@@ -154,7 +154,7 @@ export default function Create() {
 
                   <div className="-mx-4 flex flex-wrap">
                     {formControls.map((control) => (
-                      <div className="w-full px-4" key={control.label}>
+                      <div className="w-full px-4" key={control.id}>
                         <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
                           {control.label}
                         </label>
