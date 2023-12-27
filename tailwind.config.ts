@@ -1,34 +1,21 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from "tailwindcss"
+
+const config = {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx,js}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
+	],
+  prefix: "",
   theme: {
     container: {
       center: true,
-      padding: "1rem",
-    },
-    colors: {
-      current: "currentColor",
-      transparent: "transparent",
-      white: "#FFFFFF",
-      black: "#090E34",
-      dark: "#1D2144",
-      primary: "#2daafc",
-      yellow: "#FBB040",
-      "body-color": "#959CB1",
-    },
-    screens: {
-      xs: "450px",
-      sm: "575px",
-      md: "768px",
-      lg: "992px",
-      xl: "1200px",
-      "2xl": "1400px",
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
+      },
     },
     extend: {
       colors: {
@@ -37,10 +24,10 @@ module.exports = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        // primary: {
-        //   DEFAULT: "hsl(var(--primary))",
-        //   foreground: "hsl(var(--primary-foreground))",
-        // },
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -73,12 +60,12 @@ module.exports = {
       },
       keyframes: {
         "accordion-down": {
-          from: { height: 0 },
+          from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
           from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
+          to: { height: "0" },
         },
       },
       animation: {
@@ -88,4 +75,6 @@ module.exports = {
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+} satisfies Config
+
+export default config
