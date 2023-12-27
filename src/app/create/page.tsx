@@ -153,73 +153,68 @@ export default function Create() {
                   </div>
 
                   <div className="-mx-4 flex flex-wrap">
-                    {formControls.map((control) => (
-                      <div className="w-full px-4" key={control.id}>
-                        <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
-                          {control.label}
-                        </label>
-                        {control.component === "input" ? (
-                          <input
-                            type={control.type}
-                            name={control.id}
-                            placeholder={control.placeholder}
-                            onChange={(
-                              event: React.ChangeEvent<HTMLInputElement>
-                            ) => {
-                              setFormData({
-                                ...formData,
-                                [control.id]: event.target.value,
-                              });
-                            }}
-                            value={formData[control.id as keyof BlogFormData]}
-                            className="w-full mb-8 rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                          />
-                        ) : control.component === "textarea" ? (
-                          <textarea
-                            placeholder={control.placeholder}
-                            name={control.id}
-                            onChange={(
-                              event: React.ChangeEvent<HTMLTextAreaElement>
-                            ) => {
-                              setFormData({
-                                ...formData,
-                                [control.id]: event.target.value,
-                              });
-                            }}
-                            value={formData[control.id as keyof BlogFormData]}
-                            rows={6}
-                            className="w-full resize-none rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                          />
-                        ) : control.component === "select" ? (
-                          <select
-                            onChange={(
-                              event: React.ChangeEvent<HTMLSelectElement>
-                            ) => {
-                              setFormData({
-                                ...formData,
-                                [control.id]: event.target.value,
-                              });
-                            }}
-                            value={formData[control.id as keyof BlogFormData]}
-                            name={control.id}
-                            placeholder={control.placeholder}
-                            className="w-full mb-8 rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
-                          >
-                            <option value={""} id="">
-                              Select
-                            </option>
-                            {control.options.map((optionItem) => (
-                              <option
-                                id={optionItem.value}
-                                value={optionItem.value}
-                              >
-                                {optionItem.label}
-                              </option>
-                            ))}
-                          </select>
-                        ) : null}
-                      </div>
-                    ))}
+                  {formControls.map((control) => (
+  <div className="w-full px-4" key={control.id}>
+    <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
+      {control.label}
+    </label>
+    {control.component === "input" ? (
+      <input
+        type={control.type}
+        name={control.id}
+        placeholder={control.placeholder}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          setFormData({
+            ...formData,
+            [control.id]: event.target.value,
+          });
+        }}
+        value={formData[control.id as keyof BlogFormData]}
+        className="w-full mb-8 rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+      />
+    ) : control.component === "textarea" ? (
+      <textarea
+        placeholder={control.placeholder}
+        name={control.id}
+        onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) => {
+          setFormData({
+            ...formData,
+            [control.id]: event.target.value,
+          });
+        }}
+        value={formData[control.id as keyof BlogFormData]}
+        rows={6}
+        className="w-full resize-none rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+      />
+    ) : control.component === "select" ? (
+      <select
+        onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+          setFormData({
+            ...formData,
+            [control.id]: event.target.value,
+          });
+        }}
+        value={formData[control.id as keyof BlogFormData]}
+        name={control.id}
+        placeholder={control.placeholder}
+        className="w-full mb-8 rounded-md border border-transparent py-3 px-6 text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51] dark:shadow-signUp"
+      >
+        <option value={""} id="">
+          Select
+        </option>
+        {control.options.map((optionItem) => (
+          <option
+            id={optionItem.value}
+            value={optionItem.value}
+          >
+            {optionItem.label}
+          </option>
+        ))}
+      </select>
+    ) : null}
+  </div>
+))}
+
                     <div className="w-full px-4">
                       <Button
                         text="Create New Blog"
